@@ -15,8 +15,9 @@ void read (Mat rgbimg, Mat depimg, Mat mask, PointCloud &pointcloud,
     PointCloud &keypoints, vector<KeyPoint> &key, int x1, int y1, double minHessian)
 {
   vector<KeyPoint> keytemp;
-  SurfFeatureDetector detector (minHessian);
-  detector.detect (rgbimg, keytemp);
+  Ptr<xfeatures2d::SURF> detector = xfeatures2d::SURF::create(minHessian);
+  // SurfFeatureDetector detector (minHessian);
+  detector->detect (rgbimg, keytemp);
 
   // convert the feature points in the smaller mask into point cloud
   for (int k = 0; k < keytemp.size (); k++)
@@ -87,11 +88,11 @@ void match (Mat img_1, Mat img_2, vector<KeyPoint> keypoints_1,
     vector<KeyPoint> keypoints_2, vector<DMatch> &good_matches,
     pcl::CorrespondencesPtr &correspondences)
 {
-  SurfDescriptorExtractor extractor;
+  Ptr<xfeatures2d::SURF> extractor = xfeatures2d::SURF::create();
   Mat descriptors_1, descriptors_2;
 
-  extractor.compute (img_1, keypoints_1, descriptors_1);
-  extractor.compute (img_2, keypoints_2, descriptors_2);
+  extractor->compute (img_1, keypoints_1, descriptors_1);
+  extractor->compute (img_2, keypoints_2, descriptors_2);
 
   //FlannBasedMatcher matcher;
   BFMatcher matcher (NORM_L2);
