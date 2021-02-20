@@ -18,28 +18,7 @@ Asia-Pacific Signal and Information Processing Association Annual Summit and Con
 
 Building Environment
 -------------------------
-Building requires CMake, OpenCV, and [PCL](http://pointclouds.org/downloads/) cross platform toolkit. The recommended OpenCV version is 3.4.x and the recommended PCL version is 1.7. The program has been tested to successfully build on Ubuntu 18.04, OpenCV 3.4.10, PCL 1.7.1 installed. 
-
-<details>
-<summary>Install OpenCV > 3.4.2: </summary>
-`opencv_contrib` is required to be installed together with OepnCV.
-
-Download [OpenCV](https://opencv.org/releases/). We recommend 3.4.10.
-
-Download [opencv_contrib](https://github.com/opencv/opencv_contrib/releases). The version should be the same with OpenCV.
-
-Unzip the two files, and put the folder `opencv_contrib-3.4.x` in the folder `opencv-3.4.x`.
-
-```Linux
-cd opencv-3.4.x
-mkdir build
-cd build/
-cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib-3.4.10/modules -D OPENCV_ENABLE_NONFREE=true ..
-# the flag OPENCV_ENABLE_NONFREE  should be set to true for OpenCV > 3.4.2 for patent reasons
-sudo make
-sudo make install
-```
-</details>
+Building requires CMake, OpenCV, and [PCL](http://pointclouds.org/downloads/) cross platform toolkit. The recommended OpenCV version is 2.4.x (3.x may not work!) and the recommended PCL version is 1.7. The program has been tested to successfully build on Ubuntu 14.04 with OPENCV 2.4.9, PCL 1.7.1 installed. 
 
 To build the code
 ```
