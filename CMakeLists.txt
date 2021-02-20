@@ -2,7 +2,7 @@ project(reconstruct)
 cmake_minimum_required (VERSION 2.8)
 
 #opencv 
-find_package(OpenCV 3.4 REQUIRED)
+find_package(OpenCV 2.4 REQUIRED)
 
 #pcl
 find_package(PCL 1.7 REQUIRED)
