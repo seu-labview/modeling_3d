@@ -20,3 +20,4 @@ add_subdirectory(src/myastra)
 add_executable( reconstruct src/scan.cpp src/read.cpp src/registration.cpp src/common.cpp)
 target_link_libraries (reconstruct ${PCL_LIBRARIES} ${OpenCV_LIBS} Boost::thread)
 
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
